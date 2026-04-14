@@ -1,7 +1,7 @@
 <script>
 	import { timer } from '@sudoku/stores/timer';
 	import { pauseGame, resumeGame } from '@sudoku/game';
-	import { gamePaused } from '@sudoku/stores/game';
+	import { gamePaused } from '@sudoku/gamestore';
 	import { settings } from '@sudoku/stores/settings';
 </script>
 

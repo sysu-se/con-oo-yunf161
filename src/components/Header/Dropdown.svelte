@@ -33,7 +33,7 @@
 			button: 'Continue',
 			onHide: game.resume,
 			callback: () => {
-				//game.startCreatorMode();
+				game.startCreatorMode();
 			},
 		});
 	}

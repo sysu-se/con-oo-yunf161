@@ -1,17 +1,17 @@
 <script>
 	import { onMount } from 'svelte';
 	import { validateSencode } from '@sudoku/sencode';
-	import game from '@sudoku/game';
 	import { modal } from '@sudoku/stores/modal';
-	import { gameWon } from '@sudoku/stores/game';
+	import { gameWon } from '@sudoku/gamestore';
 	import Board from './components/Board/index.svelte';
 	import Controls from './components/Controls/index.svelte';
 	import Header from './components/Header/index.svelte';
 	import Modal from './components/Modal/index.svelte';
+	import { pauseGame, resumeGame } from '@sudoku/game';
 
 	gameWon.subscribe(won => {
 		if (won) {
-			game.pause();
+			pauseGame();
 			modal.show('gameover');
 		}
 	});
@@ -27,8 +27,8 @@
 		if (validateSencode(hash)) {
 			sencode = hash;
 		}
-
-		modal.show('welcome', { onHide: game.resume, sencode });
+		
+		modal.show('welcome', { onHide: resumeGame, sencode });
 	});
 </script>
 
