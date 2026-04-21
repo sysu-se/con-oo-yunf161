@@ -30,3 +30,18 @@
    1. **上下文**：目前 UI 直接访问领域对象内部，封装性差。
    2. **尝试解决手段**：查阅 OOD 资料，尚未找到适合本项目的具体方案，询问ai，给出的结果过于复杂，未找到合适的解耦方案。
 
+3.import { fade } from 'svelte/transition';这行没有被使用，是用来干什么的的
+   1. **上下文**：<script>
+	import Candidates from './Candidates.svelte';
+	import { fade } from 'svelte/transition';
+	import { SUDOKU_SIZE } from '@sudoku/constants';
+	import { cursor } from '@sudoku/stores/cursor';
+
+	export let value;
+	export let cellX;
+	export let cellY;
+	export let candidates;
+
+	export let disabled;
+	export let conflictingNumber;
+   2. **解决手段**：询问ai，行代码是导入 Svelte 内置的“淡入淡出”过渡动画函数，但是没有给出具体的使用场景，未找到合适的解耦方案。
